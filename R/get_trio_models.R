@@ -102,7 +102,8 @@
 #' saveRDS(results, "trio_models_results.rds")
 #' }
 #'
-#' @importFrom dplyr filter select pull arrange match all_of mutate
+#' @importFrom dplyr filter select pull arrange mutate
+#' @importFrom tidyselect all_of
 #' @importFrom MRGN infer.trio
 #' @export
 
