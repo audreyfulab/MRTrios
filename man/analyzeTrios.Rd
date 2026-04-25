@@ -16,8 +16,9 @@ analyzeTrios(
   clinical,
   meth.table,
   gene.table,
-  age.col,
-  race.col,
+  age.col = 5,
+  race.col = 26,
+  sex.col = 6,
   nObs = 30,
   nPCs = 50,
   writeToFile = FALSE,
@@ -50,6 +51,8 @@ analyzeTrios(
 \item{age.col}{The column where the age is located in the clinical data}
 
 \item{race.col}{The column where the race is located in the clinical data}
+
+\item{sex.col}{The column where the sex is located in the clinical data}
 
 \item{nObs}{An integer specifying the minimum number of complete observations (no missing values) in a trio}
 
@@ -186,7 +189,7 @@ meth.table.pos = findIndex(meth, 3, 1, clinical.pos[,1], com.ind)
 final.result = analyzeTrios(meth, gene, cna, final.trios.df[1:5,], 
       pc.meth.pos, pc.gene.pos, sig.pcs.meth, sig.pcs.gene, 
       clinical.pos, meth.table.pos, gene.table.pos, 
-      age.col=2, race.col=3, nObs = 30, nPCs = 50)
+      age.col=5, race.col=26, sex.col=6, nObs = 30, nPCs = 50)
 final.result
 
 # You can also write the results to an external file while the function runs
@@ -195,7 +198,7 @@ final.result
 final.result = analyzeTrios(meth, gene, cna, final.trios.df[1:5,], 
         pc.meth.pos, pc.gene.pos, sig.pcs.meth, sig.pcs.gene, 
         clinical.pos, meth.table.pos, gene.table.pos, 
-        age.col=2, race.col=3, writeToFile = TRUE, file = "trio_results.txt")
+        age.col=5, race.col=26, sex.col=6, writeToFile = TRUE, file = "trio_results.txt")
 }
  
 
@@ -215,11 +218,11 @@ sig.pcs.gene.tmp = pc.gene.pos[[2]]$sig.asso.covs
 final.result = analyzeTrios(meth, gene, cna, final.trios.df, 
         pc.meth.pos.tmp, pc.gene.pos.tmp, sig.pcs.meth.tmp, sig.pcs.gene.tmp, 
         clinical.pos, meth.table.pos, gene.table.pos, 
-        age.col = 2, race.col = 3, nObs = 30, nPCs = 50)
+        age.col=5, race.col=26, sex.col=6, nObs = 30, nPCs = 50)
 final.result
 }
 
 }
 \seealso{
-\link{infer.trio} used to infer the causal models
+\link[MRGN:infer.trio]{MRGN::infer.trio} used to infer the causal models
 }

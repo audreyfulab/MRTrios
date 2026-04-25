@@ -5,7 +5,15 @@
 \title{A function to derive Principal Components (PCs)
 and identify significantly associated PCs with the input variables containing subtypes.}
 \usage{
-findPCs(data, startCol = 3, GeneNameCol = 1, type.ind, com.ind, type, bsize)
+findPCs(
+  data,
+  startCol = 3,
+  GeneNameCol = 1,
+  type.ind,
+  com.ind,
+  type,
+  bsize = 1
+)
 }
 \arguments{
 \item{data}{A data matrix; probes or genes in rows, individuals in columns}
@@ -63,7 +71,7 @@ data(clinical.pos)
 com.ind = intersect(colnames(gene)[3:ncol(gene)], colnames(meth)[5:ncol(meth)])
 
 #Use the function to get PC score matrix and significantly associated PCs.
-pc.gene = findPCs(as.data.frame(gene), 3, 1, clinical.pos[,1], com.ind, "Pos", 1)
+pc.gene = findPCs(as.data.frame(gene), startCol=3, GeneNameCol=1, clinical.pos[,1], com.ind, type="Pos", bsize=1)
 
 #The PC matrix
 dim (pc.gene[[1]])
@@ -75,6 +83,6 @@ pc.gene[[2]]$sig.asso.covs
 }
 \seealso{
 \link{prcomp} used to calculate the PC score matrix;
-\link{get.conf.matrix} used to identify PCs that are significantly associated with the input;
+\link[MRGN:get.conf.matrix]{MRGN::get.conf.matrix} used to identify PCs that are significantly associated with the input;
 \link{findPCsGeneral} used to derive and identify PCs for general cases where there are no subtypes.
 }
