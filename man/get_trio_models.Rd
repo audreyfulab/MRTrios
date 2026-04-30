@@ -10,13 +10,13 @@ get_trio_models(
   cna,
   gene.exp,
   TCGA.meth,
-  clinical.pos,
-  gene_pos_indice,
-  meth_pos_indice,
-  pc.gene.pos,
-  pc.meth.pos,
-  gene.table.pos,
-  meth.table.pos
+  clinical,
+  gene_indice,
+  meth_indice,
+  pc.gene,
+  pc.meth,
+  gene.table,
+  meth.table
 )
 }
 \arguments{
@@ -36,26 +36,26 @@ genes in rows, individuals in columns.}
 \item{TCGA.meth}{A data frame of DNA methylation data (logit-transformed);
 probes in rows, individuals in columns.}
 
-\item{clinical.pos}{A data frame of clinical data for ER+ patients with columns:
+\item{clinical}{A data frame of clinical data for ER+/ER- patients with columns:
 \code{V1} = patient ID, \code{V2} = age, \code{V3} = race.}
 
-\item{gene_pos_indice}{A list of significant PC indices for gene expression,
+\item{gene_indice}{A list of significant PC indices for gene expression,
 as returned by \code{findPCs()} or loaded from \code{.rds}.}
 
-\item{meth_pos_indice}{A list of significant PC indices for methylation,
+\item{meth_indice}{A list of significant PC indices for methylation,
 as returned by \code{findPCs()} or loaded from \code{.rds}.}
 
-\item{pc.gene.pos}{A data frame of PC scores for gene expression;
+\item{pc.gene}{A data frame of PC scores for gene expression;
 first column is patient ID (\code{V1}), remaining columns are PC scores.}
 
-\item{pc.meth.pos}{A data frame of PC scores for methylation;
+\item{pc.meth}{A data frame of PC scores for methylation;
 first column is patient ID (\code{V1}), remaining columns are PC scores.}
 
-\item{gene.table.pos}{A data frame mapping gene expression row indices to
+\item{gene.table}{A data frame mapping gene expression row indices to
 their corresponding index in \code{gene_pos_indice}.
 Columns: \code{col1} = original row index, \code{col2} = list index.}
 
-\item{meth.table.pos}{A data frame mapping methylation row indices to
+\item{meth.table}{A data frame mapping methylation row indices to
 their corresponding index in \code{meth_pos_indice}.
 Columns: \code{col1} = original row index, \code{col2} = list index.}
 }
@@ -112,13 +112,13 @@ results <- get_trio_models(
   cna            = cna,
   gene.exp       = gene.exp,
   TCGA.meth      = TCGA.meth,
-  clinical.pos   = clinical.pos,
-  gene_pos_indice = gene_pos_indice,
-  meth_pos_indice = meth_pos_indice,
-  pc.gene.pos    = pc.gene.pos,
-  pc.meth.pos    = pc.meth.pos,
-  gene.table.pos = gene.table.pos,
-  meth.table.pos = meth.table.pos
+  clinical   = clinical.pos,
+  gene_indice = gene_pos_indice,
+  meth_indice = meth_pos_indice,
+  pc.gene    = pc.gene.pos,
+  pc.meth    = pc.meth.pos,
+  gene.table = gene.table.pos,
+  meth.table = meth.table.pos
 )
 
 # View results
