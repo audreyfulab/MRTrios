@@ -210,7 +210,8 @@ get_trio_models <- function(trio_row,
     # Infer causal model
     ### specify is.CNA = TRUE, the default set is FALSE
     ### default set in infer.trio: use.perm = TRUE, gamma=0.05, is.CNA = FALSE, alpha=0.01, nperms=1000, compute.nominal=FALSE, verbose=FALSE
-
+    
+    model <- as.data.frame(infer.trio(df_trio,is.CNA = TRUE))
     
     # Return one row of results
     cbind(
