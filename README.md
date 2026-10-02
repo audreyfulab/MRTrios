@@ -4,6 +4,6 @@ Implement the computationl pipeline to analyze trios of copy number alteration, 
 To install the package from GitHub:   
 ```
 R> library (devtools)
-R> install_github("audreyqyfu/MRTrios")
+R> install_github("audreyfulab/MRTrios")
 ```
-This package depends on the MRGN package: https://github.com/Jarred6068/MRGN.  You need to install MRGN before installing MRTrios.
+This package depends on the MRGN package: https://github.com/audreyfulab/MRGN.  You need to install MRGN before installing MRTrios.
